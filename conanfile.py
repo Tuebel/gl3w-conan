@@ -5,7 +5,7 @@ import shutil
 
 class Gl3wConan(ConanFile):
     name = "gl3w"
-    version = "latest"
+    version = "0.1"
     license = "Unlicense"
     url = "https://github.com/Tuebel/gl3w-conan"
     description = "Simple OpenGL core profile loading."
