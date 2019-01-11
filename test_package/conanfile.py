@@ -4,12 +4,12 @@ import os
 
 class Gl3wTestConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
-    requires = "gl3w/0.1@tuebel/testing", "glfw/3.2.1@bincrafters/stable"
+    requires = "gl3w/0.1@tuebel/experimental", "glfw/3.2.1@bincrafters/stable"
     generators = "cmake"
 
     def build(self):
         cmake = CMake(self)
-        cmake.configure(source_dir=self.source_folder, build_dir="./")
+        cmake.configure()
         cmake.build()
 
     def imports(self):
