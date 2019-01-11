@@ -4,7 +4,7 @@ import os
 
 class Gl3wTestConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
-    requires = "gl3w/latest@user/testing", "glfw/3.2.1@bincrafters/stable"
+    requires = "gl3w/latest@tuebel/stable", "glfw/3.2.1@bincrafters/stable"
     generators = "cmake"
 
     def build(self):
