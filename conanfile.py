@@ -7,7 +7,7 @@ class Gl3wConan(ConanFile):
     name = "gl3w"
     version = "latest"
     license = "Unlicense"
-    url = "https://github.com/skaslev/gl3w"
+    url = "https://github.com/Tuebel/gl3w-conan"
     description = "Simple OpenGL core profile loading."
     settings = "os", "compiler", "build_type", "arch"
     generators = "cmake"
