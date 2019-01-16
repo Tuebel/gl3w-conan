@@ -31,10 +31,6 @@ class Gl3wConan(ConanFile):
         self.run("python gl3w_gen.py --root gl3w")
 
     def build(self):
-        if self.options.shared:
-            print("building shared lib")
-        else:
-            print("building static lib")
         cmake = CMake(self)
         cmake.configure()
         cmake.build()
@@ -43,6 +39,7 @@ class Gl3wConan(ConanFile):
         self.copy("*.h", dst="include", src="gl3w/include", keep_path=True)
         self.copy("*.lib", dst="lib", keep_path=False)
         self.copy("*.dll", dst="bin", keep_path=False)
+        self.copy("*.dylib*", dst="lib", keep_path=False)
         self.copy("*.so", dst="lib", keep_path=False)
         self.copy("*.a", dst="lib", keep_path=False)
 
