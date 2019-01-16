@@ -4,10 +4,13 @@ import os
 
 class Gl3wTestConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
-    requires = "gl3w/0.1@tuebel/experimental", "glfw/3.2.1@bincrafters/stable"
     generators = "cmake"
     options = {"shared": [True, False], "fPIC": [True, False]}
     default_options = "shared=True", "fPIC=True"
+
+    def requirements(self):
+        self.requires("gl3w/0.2@{}/{}".format(self.user, self.channel))
+        self.requires("glfw/3.2.1@bincrafters/stable")
 
     def build(self):
         cmake = CMake(self)
