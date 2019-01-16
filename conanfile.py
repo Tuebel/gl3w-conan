@@ -12,6 +12,12 @@ class Gl3wConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     generators = "cmake"
     exports = "CMakeLists.txt"
+    options = {"shared": [True, False], "fPIC": [True, False]}
+    default_options = "shared=False", "fPIC=True"
+
+    def configure(self):
+        if self.settings.compiler == 'Visual Studio':
+            del self.options.fPIC
 
     def source(self):
         if os.path.exists("gl3w_gen.py"):
@@ -25,8 +31,11 @@ class Gl3wConan(ConanFile):
         self.run("python gl3w_gen.py --root gl3w")
 
     def build(self):
+        if self.options.shared:
+            print("building shared lib")
+        else:
+            print("building static lib")
         cmake = CMake(self)
-        # build the static library from gl3w.c
         cmake.configure()
         cmake.build()
 
