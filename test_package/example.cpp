@@ -5,6 +5,17 @@
 int main(int argc, char **argv)
 {
   int glfw_res = glfwInit();
+  if (glfw_res == GLFW_FALSE)
+  {
+    std::cout << "failed to init glfw"
+              << "\n";
+    return EXIT_FAILURE;
+  }
+  else
+  {
+    std::cout << "succeeded to init glfw"
+              << "\n";
+  }
   // compability requirements
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
@@ -16,6 +27,10 @@ int main(int argc, char **argv)
   {
     std::cout << "failed to create glfw context\n";
     return EXIT_FAILURE;
+  }
+  else
+  {
+    std::cout << "succeeded to create glfw context\n";
   }
   glfwMakeContextCurrent(window);
   int success = gl3wInit();
