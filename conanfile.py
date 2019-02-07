@@ -26,7 +26,7 @@ class Gl3wConan(ConanFile):
             shutil.rmtree("gl3w")
         # download and generate the sources
         tools.download(
-            "https://github.com/skaslev/gl3w/raw/master/gl3w_gen.py",
+            "https://raw.githubusercontent.com/skaslev/gl3w/4f1d558410b0938840dc3db98e741d71f382ba22/gl3w_gen.py",
             "gl3w_gen.py")
         self.run("python gl3w_gen.py --root gl3w")
 
